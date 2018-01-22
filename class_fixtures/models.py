@@ -5,12 +5,15 @@ except ImportError:
 from collections import Iterable
 
 from django.db import models, router
+from django.db.models.fields.related_descriptors import (
+    ForwardManyToOneDescriptor as srod
+)
+
 from django.db.models.fields.related import (
-    SingleRelatedObjectDescriptor as srod,
     ManyRelatedObjectsDescriptor as mrod,
     ReverseSingleRelatedObjectDescriptor as rsrod,
     ReverseManyRelatedObjectsDescriptor as rmrod,
-    )
+)
 from class_fixtures.exceptions import FixtureUsageError, RelatedObjectError
 
 try:
